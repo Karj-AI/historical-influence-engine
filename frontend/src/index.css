@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #0e0a16;
+  background-image: linear-gradient(
+    180deg,
+    #0a0712 0%,
+    #17102a 35%,
+    #241a3d 65%,
+    #362a52 100%
+  );
+  background-attachment: fixed;
+  color: #f0e6c8;
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+  position: relative;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ctext y='22' font-size='22'%3E%F0%9F%8D%8E%3C/text%3E%3C/svg%3E") 14 14, auto;
+}
+
+/* Stars - fixed layer, subtle and calm, denser toward the top (darker) area */
+.star-field {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: #f0e6c8;
+  border-radius: 50%;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.85; }
+}
+
+/* Subtle grain texture overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+h1, h2, h3, .font-heading {
+  font-family: 'Cinzel', serif;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #6b5a3a;
+  border: 2px solid #0e0a16;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8a7248;
+}
+
+.pixel-panel {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #e8dcb8 0%, #ddd0a5 50%, #d4c496 100%);
+  color: #3a2a1a;
+  border: 3px solid #6b4a2f;
+  box-shadow:
+    inset 0 0 30px rgba(107, 74, 47, 0.25),
+    0 6px 0 #4a3319,
+    0 10px 20px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  position: relative;
+}
+
+.pixel-panel::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(107, 74, 47, 0.4);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.pixel-panel-dark {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(255,255,255,0.05) 0%, transparent 50%),
+    linear-gradient(135deg, #d8caa0 0%, #ccbc8e 50%, #c2b080 100%);
+  color: #3a2a1a;
+  border: 3px solid #5c3f28;
+  box-shadow:
+    inset 0 0 24px rgba(92, 63, 40, 0.3),
+    0 6px 0 #3a2a1a,
+    0 10px 20px rgba(0,0,0,0.5);
+  border-radius: 4px;
+  position: relative;
+}
+
+.pixel-panel-dark::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(92, 63, 40, 0.4);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.gold-text {
+  color: #d9ae3f;
+}
